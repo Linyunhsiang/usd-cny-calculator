@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>美元轉人民幣計算機</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2em;
+      background: #f9f9f9;
+      text-align: center;
+    }
+    input {
+      font-size: 1.2em;
+      padding: 0.5em;
+      width: 220px;
+      margin: 0.5em 0;
+    }
+    .result {
+      margin-top: 1em;
+      font-size: 1.4em;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>美元轉人民幣計算機</h1>
+  <p>匯率：1 美元 = 7.2 人民幣</p>
+
+  <input type="number" id="usdInput" placeholder="輸入美元金額" oninput="convertCurrency()" />
+  <br />
+  <input type="number" id="weightInput" placeholder="每箱重量（公斤）" value="13.5" oninput="convertCurrency()" />
+
+  <div class="result" id="resultCNY"></div>
+  <div class="result" id="resultPerKg"></div>
+
+  <script>
+    function convertCurrency() {
+      const rate = 7.2;
+      const usd = parseFloat(document.getElementById('usdInput').value);
+      const weight = parseFloat(document.getElementById('weightInput').value);
+      const resultCNYDiv = document.getElementById('resultCNY');
+      const resultPerKgDiv = document.getElementById('resultPerKg');
+
+      if (!isNaN(usd) && !isNaN(weight) && weight > 0) {
+        const cny = usd * rate;
+        const perKg = cny / weight;
+        resultCNYDiv.textContent = `人民幣總價：¥ ${cny.toFixed(2)}`;
+        resultPerKgDiv.textContent = `每公斤價格：¥ ${perKg.toFixed(2)}`;
+      } else {
+        resultCNYDiv.textContent = '';
+        resultPerKgDiv.textContent = '';
+      }
+    }
+  </script>
+</body>
+</html>
