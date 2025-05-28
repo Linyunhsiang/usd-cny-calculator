@@ -4,13 +4,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SUMIFRU計算機</title>
+  <title>美元轉人民幣計算機</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       padding: 2em;
       background: #f9f9f9;
       text-align: center;
+    }
+    img.logo {
+      max-width: 200px;
+      margin-bottom: 20px;
     }
     input {
       font-size: 1.2em;
@@ -26,14 +30,14 @@
   </style>
 </head>
 <body>
-  <h1>SUMIFRU</h1>
+  <img src="sumifru-logo.png" alt="Sumifru Logo" class="logo" />
   <h1>美元轉人民幣計算機</h1>
   <p>匯率：1 美元 = 7.2 人民幣</p>
 
   <input type="number" id="usdInput" placeholder="輸入美元金額" oninput="convertCurrency()" />
   <br />
   <input type="number" id="weightInput" placeholder="每箱重量（公斤）" value="13.5" oninput="convertCurrency()" />
-  <p>每箱重量（公斤）</p>
+
   <div class="result" id="resultCNY"></div>
   <div class="result" id="resultPerKg"></div>
 
